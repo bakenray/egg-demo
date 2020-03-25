@@ -1,24 +1,26 @@
 'use strict';
 
 const {Controller} = require('egg');
-const products = [];
+const ProductModel = require('../model/product');
+const productModel = new ProductModel();
+
 class ProductController extends Controller{
     async index(){
         const {ctx} = this;
-        ctx.body = {products}
+        const products = await productModel.list();
+        ctx.body = { products };
     }
     async getOneById(){
-        const {ctx} = this;
-        const {id} = ctx.query;
-        const product = products.find(p=>p.id === Number(id));
+        const { ctx } = this;
+        const { id } = ctx.query;
+        const product = await productModel.getOneById(id);
         ctx.body = {product};
     }
     async addOne(){
         const {ctx} = this;
         const {product} = ctx.request.body;
-        if(product) products.push(product);
+        await productModel.addOne(product);
         ctx.body = {product};
     }
-
 }
 module.exports = ProductController;
