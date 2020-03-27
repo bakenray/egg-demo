@@ -1,8 +1,6 @@
 'use strict';
 
 const { Controller } = require('egg');
-const ProductModel = require('../model/product');
-const productModel = new ProductModel();
 
 class ProductController extends Controller {
   async index() {

@@ -1,5 +1,21 @@
 'use strict';
-const products = [];
+const products = [
+  {
+    id: 1,
+    name: '商品1',
+    priceInCents: 11, // 分
+  },
+  {
+    id: 2,
+    name: '商品2',
+    priceInCents: 12,
+  },
+  {
+    id: 3,
+    name: '商品3',
+    priceInCents: 13,
+  },
+];
 class ProductModel {
   async list() {
     return products;
