@@ -23,7 +23,17 @@ module.exports = appInfo => {
       enable: false,
     },
   };
-
+  config.sequelize = {
+    dialect: 'postgres',
+    host: 'localhost',
+    port: 5432,
+    username: 'bakenray',
+    password: 'lpqstrong',
+    pool: {
+      max: 10,
+      min: 1,
+    },
+  };
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',

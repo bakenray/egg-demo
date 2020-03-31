@@ -2,7 +2,7 @@
 
 const { Subscription } = require('egg');
 
-let count = 0;
+// let count = 0;
 class SomeSubscription extends Subscription {
   static get schedule() {
     return {
@@ -11,7 +11,7 @@ class SomeSubscription extends Subscription {
     };
   }
   async subscribe() {
-    this.app.logger.error(`some sub: ${count++}`);
+    // this.app.logger.error(`some sub: ${count++}`);
   }
 }
 module.exports = SomeSubscription;
